@@ -402,7 +402,7 @@ script.
         res.substring(0,res.indexOf("*"));
       }
     };
-    xmlhttp.open("POST", "http://localhost:5000/users/uploadData");
+    xmlhttp.open("POST", "/users/uploadData");
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send(JSON.stringify(jsonData))  ;
       }
