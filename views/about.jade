@@ -1,146 +1,327 @@
-link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+doctype html
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')  
+link(href='https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,100,300,600,700' rel='stylesheet' type='text/css')
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-style.
-  body {
-  margin:0;
-  }
-  h1 {
-  font-family: 'Lato', sans-serif;
-  font-weight:300;
-  letter-spacing: 2px;
-  font-size:48px;
-  }
-  p {
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size:14px;
-  color: #333333;
-  }
-  .header {
-  position:relative;
-  text-align:center;
-  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-  color:white;
-  }
-  .logo {
-  width:50px;
-  fill:white;
-  padding-right:15px;
-  display:inline-block;
-  vertical-align: middle;
-  }
-  .inner-header {
-  height:65vh;
-  width:100%;
-  margin: 0;
-  padding: 0;
-  }
-  .flex { /*Flexbox for containers*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  }
-  .waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
-  }
-  .content {
-  position:relative;
-  height:20vh;
-  text-align:center;
-  background-color: white;
-  }
-  /* Animation */
-  .parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-  }
-  .parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-  }
-  .parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-  }
-  .parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-  }
-  .parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-  }
-  @keyframes move-forever {
-  0% {
-  transform: translate3d(-90px,0,0);
-  }
-  100% {
-  transform: translate3d(85px,0,0);
-  }
-  }
-  .progress{
-    margin-left:20%;
-    margin-right:20%;
-    margin-top:2%;
-  }
-  .file-field.medium .file-path-wrapper {
-    height: 3rem; }
-  .file-field.medium .file-path-wrapper .file-path {
-    height: 2.8rem; }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.json2html/1.2.0/jquery.json2html.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js" integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
+<script src="/javascripts/json2html.js"></script> 
+html
+  head
+    meta(http-equiv='content-type' content='text/html;charset=utf-8')
+    title Login to Plum 
+    link(rel='icon' href='/images/favicon.ico')
+    style.
+      html {
+      line-height: 1.15;
+      -webkit-text-size-adjust: 100%;
+      }
+      body {
+      margin: 0;
+      }
+      .invalid-input{
+        background-color: #faafaf;
+      }
+      h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight:300;
+      letter-spacing: 2px;
+      font-size:48px;
+      }
+      div#messageOut {
+      position: relative;
+      padding-top: 4px;
+      font-size: 4rem;
+      margin: 0px;
+      box-shadow:0 2px 5px rgba(0,0,0,.3);
+      background: #f0acaa;
+      color: #FFF;
+      }
 
-  .file-field.big-2 .file-path-wrapper {
-    height: 3.7rem; }
-  .file-field.big-2 .file-path-wrapper .file-path {
-    height: 3.5rem; }
-  /*Shrinking for mobile*/
-  @media (max-width: 768px) {
-  .waves {
-  height:40px;
-  min-height:40px;
-  }
-  .content {
-  height:30vh;
-  }
-  h1 {
-  font-size:24px;
-  }
-  }
-.header
-  <br><br><br>
-  //progress( style='width:300px;')
-  //button( class="btn btn-danger" type='submit' name='submit' value='Register') Cancel
-  p 
-  |  Tech/Tools/Packages Invoved - JADE,CSS,Node.js, Multer, MongoDB, Mongoose, Express,passport, Bcrupt, Flash <br><br>
-  |  Flow of Application - User Registration -> Authentication ->Upload File->Validate CSV ->Upload CSV -> File Operations (Pause,Terminate)  <br><br>
-  |  Business Logic : Upon successful authentication the user is enabled file upload. Each row in the csv is individually uploaded to MongoDB (Design Choice, to mock large data).
-  div
-    button(style="margin:10px" type='submit'  class="btn btn-info" onclick ="window.location='/'" id='logout' value='Register') Home <br>
-    button(style="margin:10px" type='submit' class="btn btn-info" onclick ="window.location='/users/logout'" id='logout' value='Register') Logout <br>
-  // Content before waves
-  //h1 Simple CSS Waves
-  // Waves Container
-  div
-    svg.waves(xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 24 150 28' preserveAspectRatio='none' shape-rendering='auto')
-      defs
-        path#gentle-wave(d='M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z')
-      g.parallax
-        use(xlink:href='#gentle-wave' x='48' y='0' fill='rgba(255,255,255,0.7')
-        use(xlink:href='#gentle-wave' x='48' y='3' fill='rgba(255,255,255,0.5)')
-        use(xlink:href='#gentle-wave' x='48' y='5' fill='rgba(255,255,255,0.3)')
-        use(xlink:href='#gentle-wave' x='48' y='7' fill='#fff')
-  // Waves end
-// Header ends
-// Content starts
-.content.flex
-  p By Harsh Joshi <br><br><br><br>
+      div#messageOut:hover{
+        box-shadow: 0 15px 20px rgba(10,0,10,.3);
+        -webkit-filter: brightness(110%);
+      }
+
+      div#messageOut.success{background: #347AB7;}
+
+      p{
+        font-family: 'Lato', sans-serif;
+        letter-spacing: 1px;
+        font-size:14px;
+        color: #333333;
+        }
+      li{
+        display:none;
+      }
+      main {
+      display: block;
+      }
+      h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+      }
+      hr {
+      box-sizing: content-box;
+      height: 0;
+      overflow: visible;
+      }
+      pre {
+      font-family: monospace, monospace;
+      font-size: 1em;
+      }
+      a {
+      background-color: transparent;
+      }
+      b,
+      strong {
+      font-weight: bolder;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+      }
+      button,
+      input {
+      overflow: visible;
+      }
+      button,
+      select {
+      text-transform: none;
+      }
+      progress {
+      vertical-align: baseline;
+      }
+      textarea {
+      overflow: auto;
+      }
+      html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+      box-sizing: border-box;
+      }
+      button {
+      background: transparent;
+      padding: 0;
+      }
+      html {
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizelegibility;
+      }
+      hr {
+      border-top-width: 1px;
+      }
+      img {
+      border-style: solid;
+      }
+      textarea {
+      resize: vertical;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+      font-size: inherit;
+      font-weight: inherit;
+      }
+      a {
+      color: inherit;
+      -webkit-text-decoration: inherit;
+      text-decoration: inherit;
+      }
+      html {
+      line-height: 1.5;
+      color: #182639;
+      }
+      *,
+      *::before,
+      *::after {
+      border-width: 0;
+      border-style: solid;
+      border-color: #E1E5EB;
+      }
+    style(data-emotion-css='130005y').
+      .css-130005y {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #f6f5f3;
+      width: 100vw;
+      min-height: 100vh;
+      height: 100%;
+      padding: 40px 0 28px;
+      }
+      @media screen and (min-width:40em) {
+      .css-130005y {
+      padding: 56px 0 32px;
+      }
+      }
+  body
+    .css-130005y
+      style(data-emotion-css='14eu39i').
+        .css-14eu39i {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        width: 100%;
+        }
+      .css-14eu39i
+        style(data-emotion-css='mhg94k').
+          .css-mhg94k {
+          cursor: pointer;
+          width: 110px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 32px;
+          }
+          @media screen and (min-width:40em) {
+          .css-mhg94k {
+          width: 123px;
+          margin-bottom: 45px;
+          }
+          }
+        img.css-mhg94k(alt='A Plum Logo' src="/images/plum_new_logo.svg")
+        style(data-emotion-css='1097foj').
+          .css-1097foj {
+          width: 100%;
+          background-color: #fff;
+          padding: 32px 20px;
+          box-sizing: border-box;
+          border-radius: 6px;
+          }
+          @media screen and (min-width:40em) {
+          .css-1097foj {
+          width: 85%;
+          padding: 40px 28px;
+          border-radius: 10px;
+          }
+          }
+        .css-1097foj
+          .header
+            .progress
+              .progress-bar.progress-bar-striped.progress-bar-animated#progressBar( role='progressbar' value='0' max='100' style="width:2%")
+            form.md-form(style="margin-left:45%" id= "myform" name="myform" method="post" action="users/uploadData" enctype='multipart/form-data')
+              .form-group
+                input(name='csvData', onchange="parseCSV()" id='csvData', class="custom-file-input" type='file')
+          #messageOut(style="display:none;" class="success")
+            i(class="fa fa-info-circle fa-lg" aria-hidden="true" style="margin-left:50%")
+            h6(id="outputHeader" style="margin-left:45%;margin-top:1px;" ) Status
+            p#outputMessage(style="color:white;font-style:bold;margin-left:28%;")
+
+          .card-body
+            #table.table-editable
+              span.table-add.float-right.mb-3.mr-2
+                a.text-success(href='#!')
+                  i.fas.fa-plus.fa-2x(aria-hidden='true')
+              table.table.table-bordered.table-responsive-md.table-striped.text-center(id="data-table")
+                thead
+                  tr
+                    th.text-center _id
+                    th.text-center Name
+                    th.text-center Email
+                    th.text-center DOB
+                    th.text-center DOJ
+                    th.text-center Gender
+                    th.text-center Relationship
+                    th.text-center Mobile
+                tbody(id="target_div")
+                  tr
+                  //  td.pt-3-half(contenteditable='true') 
+                    td.pt-3-half(contenteditable='true') 
+                    td.pt-3-half(contenteditable='true') Deepends
+                    td.pt-3-half(contenteditable='true') Spain
+                    td.pt-3-half(contenteditable='true') Madrid
+                    td.pt-3-half
+                      span.table-up
+                        a.indigo-text(href='#!')
+                          i.fas.fa-long-arrow-alt-up(aria-hidden='true')
+                      span.table-down
+                        a.indigo-text(href='#!')
+                          i.fas.fa-long-arrow-alt-down(aria-hidden='true')
+                    td
+                      span.table-remove
+                        button.btn.btn-danger.btn-rounded.btn-sm.my-0(type='button') Remove 
+                  // This is our clonable table line
+            button(type='submit' style="margin-left:45%" class="btn btn-danger" onclick ="submitForm()" id='uploadButton' value='Register') Add Employee Data <br>
+
+      style(data-emotion-css='1hh91fr').
+        .css-1hh91fr {
+        margin-top: 32px;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        color: #55657D;
+        font-size: 14px;
+        }
+      .css-1hh91fr
+        style(data-emotion-css='aduqc0').
+          .css-aduqc0 {
+          font-family: Inter, system-ui, sans-serif;
+          text-align: center;
+          }
+        p.css-aduqc0 © Plum Benefits Private Limited <br> <a href="/users/logout">Logout here<a>
  
 // Content ends
 script.
+  var transform = 
+  {"tag":"tr", "children":[
+            {"tag":"td contenteditable='true' class='pt-3-half' id='_id'","html":"${eid}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='name'","html":"${name}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='email'","html":"${email}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='dob' ","html":"${dob}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='doj' ","html":"${doj}"},
+            {"tag":"td class='pt-3-half' id='gender' ","html":"<select style='width:100%;height:100%'><option value='${gender}' disabled selected>${gender}</option><option value='male'>male</option><option value='female'>female</option></select>"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='rel'","html":"${relationship}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='mobile'","html":"${mobile}"}
+  ]};
+
+  function validateEmail($email) {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test( $email );
+  }
+
+  function validateNumber($number) {
+    var numberReg = /[2-9]{2}\d{8}/;
+    return numberReg.test( $number );
+  }
+  
   function move() {
       var elem = document.getElementById("progressBar");
       var width = 1;
@@ -154,27 +335,85 @@ script.
           elem.style.width = width + "%";
         }
       }
-    }
-  
-  function pauseUpload(){
-    var isPause= $('#pause').text();
-    console.log(isPause);
-    if(isPause.localeCompare("Pause")){
-       $('#pause').text("Resume");
-    }
-    else{checkResume();}
-            
   }
-  function checkResume(){
-    var isPause= $('#pause').text();
-    console.log(isPause);
-    if(isPause.localeCompare("Resume")){
-       $('#pause').text("Pause");
-    }
-            
+  function submitForm(){
+    var jsonData = $('#data-table').tableToJSON({
+   
+        //ignoreColumns: [0]
+  });
+   console.log(jsonData);
+    var xmlhttp = new XMLHttpRequest(); 
+    move();  // new HttpRequest instance
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      $("#messageOut").css("display", "block");
+      let res=this.responseText;
+      console.log(typeof(res));
+      console.log(res.indexOf("*"));
+      document.getElementById("outputMessage").innerHTML = res.substring(res.indexOf("*")+1);
+      document.getElementById("outputHeader").innerHTML =
+        res.substring(0,res.indexOf("*"));
+      }
+    };
+    xmlhttp.open("POST", "http://localhost:5000/users/uploadData");
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp.send(JSON.stringify(jsonData));
+  }
+
+  function changeDate(dateString){
+    console.log(dateString);
+    var dateArr=["","January","February","March","April","May","June","July","August","September","October","November","December"];
+    var dateParts = dateString.split("/");
+    var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
+    var month=dateObject.getMonth();
+    return dateArr[month+1]+' '+dateParts[0]+', '+dateParts[2];
+  }
+  function editDOB(){
+    document.querySelectorAll('#data-table #dob')
+    .forEach(e => e.addEventListener("click", function() {
+      // Here, `this` refers to the element the event was hooked on
+      console.log($(this).context.firstChild.data);
+    }));
+  }
+  function editContact(){
+    document.querySelectorAll('#data-table #mobile')
+    .forEach(e => e.addEventListener("input", function() {
+      if(!validateNumber($(this).context.firstChild.data)){
+        $(this).addClass("invalid-input");
+      } else{
+        $(this).removeClass("invalid-input");
+      }
+    }));
+  }
+  function editDOJ(){
+    document.querySelectorAll('#data-table #doj')
+    .forEach(e => e.addEventListener("click", function() {
+      // Here, `this` refers to the element the event was hooked on
+      console.log("DOB");
+    }));
+  }
+  function editEmail(){
+    document.querySelectorAll('#data-table #email')
+    .forEach(e => e.addEventListener("input", function() {
+      if($(this).context.firstChild.data!=""){
+      if(!validateEmail($(this).context.firstChild.data)){
+        $(this).addClass("invalid-input");
+      } else{
+        $(this).removeClass("invalid-input");
+      }}
+      else{
+        $(this).addClass("invalid-input");
+      }
+    }));
+  }
+  function editGender(){
+    document.querySelectorAll('#data-table #gender')
+    .forEach(e => e.addEventListener("click", function() {
+      validateGender($(this).context.firstChild.data);
+    }));
   }
   function parseCSV(){
-    var csvFile = $('#csvData').prop('files')[0];  
+    let csvFile = $('#csvData').prop('files')[0];  
     let reader = new FileReader();
     reader.readAsText(csvFile);
     jsonFile = [];
@@ -183,7 +422,7 @@ script.
       try {
           var lines=reader.result.split("\n");
           var headers = lines[0].split(",");
-          for(var i=1;i<lines.length;i++){
+          for(var i=1;i<lines.length-1;i++){
               var built_line = {};
               var cells=lines[i].split(",");
               for(var j=0;j<cells.length;j++){
@@ -197,29 +436,15 @@ script.
       catch{
           console.log("Error");   
       }
-      console.log(jsonFile);
+    for(let i=0;i<jsonFile.length;++i){
+       jsonFile[i].dob=changeDate(jsonFile[i].dob);
+        jsonFile[i].doj=changeDate(jsonFile[i].doj);
+     }
+     $('#target_div').html(json2html.transform(jsonFile,transform));
+     console.log(jsonFile);
+     editDOB();
+     editEmail();
+     editContact()
     }
   }
-  $(document).ready(function () { 
-    var output =0;
-    console.log("Called");
-    $('#terminate').click(function(e){
-      window.stop();
-      e.preventDefault();
-      console.log("Called Inside");
-      e.stopPropagation();
-      $.ajax({
-        url: "users/getCount",
-        type: 'GET',
-        success: function(res) {
-            var n = res.search("countDiv");
-            var match=res.substring(n+10,n+11);
-            console.log(match);
-            output= match;
-            //alert(res);
-        }
-    });
-    alert(output+" Records were rolled back");
-    });
-    
-  });
+  

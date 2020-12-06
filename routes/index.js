@@ -8,9 +8,6 @@ router.get('/', ensureAuthenticated, function(req, res, next) {
 router.get('/home', ensureAuthenticated, function(req, res, next) {
 	res.render('flow', { title: 'Home' });
   });
-router.get('/getCount',ensureAuthenticated, function(req, res, next) {
-	res.render('flow',{ count: counter });
-  });
 router.get('/about', ensureAuthenticated, function(req, res, next) {
 	res.render('about', { title: 'About' });
   });

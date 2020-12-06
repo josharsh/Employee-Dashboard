@@ -31,6 +31,7 @@
     "passport-http": "*",
     "passport-local": "*",
     "serve-favicon": "~2.3.0",
+    "tabletojson": "^2.0.4",
     "upload-csv": "0.0.1"
   }
 }
