@@ -22,7 +22,7 @@ html
       line-height: 1.15;
       -webkit-text-size-adjust: 100%;
       }
-
+      
       body {
       margin: 0;
       }
@@ -169,23 +169,23 @@ html
       }
 
       input:before {
-        position: absolute;
-        top: 3px; left: 3px;
-        content: attr(data-date);
-        display: inline-block;
-        color: #333333;
+          position: absolute;
+          top: 3px; left: 3px;
+          content: attr(data-date);
+          display: inline-block;
+          color: #333333;
       }
 
       input::-webkit-datetime-edit, input::-webkit-inner-spin-button, input::-webkit-clear-button {
-        display: none;
+          display: none;
       }
 
       input::-webkit-calendar-picker-indicator {
-        position: absolute;
-        top: 3px;
-        right: 0;
-        color: black;
-        opacity: 1;
+          position: absolute;
+          top: 3px;
+          right: 0;
+          color: black;
+          opacity: 1;
       }
     style(data-emotion-css='130005y').
       .css-130005y {
@@ -269,12 +269,12 @@ html
               .progress-bar.progress-bar-striped.progress-bar-animated#progressBar( role='progressbar' value='0' max='100' style="width:2%")
             form.md-form(style="margin-left:45%" id= "myform" name="myform" method="post" action="users/uploadData" enctype='multipart/form-data')
               .form-group
-                input(name='csvData' onchange="parseCSV()" id='csvData' class="custom-file-input" type='file')
+                input(name='csvData', onchange="parseCSV()" id='csvData', class="custom-file-input" type='file')
           #messageOut(style="display:none;" class="success")
             i(class="fa fa-info-circle fa-lg" aria-hidden="true" style="margin-left:50%")
             h6(id="outputHeader" style="margin-left:45%;margin-top:1px;" ) Status
             p#outputMessage(style="color:white;font-style:bold;margin-left:40%;")
-
+         
           .card-body
             #table.table-editable
               span.table-add.float-right.mb-3.mr-2
@@ -330,19 +330,19 @@ html
             background:inherit;
           }
         p.css-aduqc0 © Plum Benefits Private Limited <br> <a href="/users/logout">Logout here<a>
-
+ 
 // Content ends
 script.
   var transform = 
   {"tag":"tr", "children":[
-    {"tag":"td contenteditable='true' class='pt-3-half' id='_id'","html":"${eid}"}, 
-    {"tag":"td contenteditable='true' class='pt-3-half' id='name'","html":"${name}"},
-    {"tag":"td contenteditable='true' class='pt-3-half' id='email'","html":"${email}"},
-    {"tag":"td class='pt-3-half' id='dob' ","html":"<input type='date' id='inputdob' data-date-format='MMMM DD, YYYY' value='${dob}' data-date=''>"},
-    {"tag":"td contenteditable='true' class='pt-3-half' id='doj' ","html":"<input type='date' id='inputdoj' data-date-format='MMMM DD, YYYY' value='${doj}' data-date=''>"},
-    {"tag":"td class='pt-3-half' id='gender' ","html":"<select style='width:100%;height:100%'><option value='${gender}' disabled selected>${gender}</option><option value='male'>male</option><option value='female'>female</option></select>"},
-    {"tag":"td contenteditable='true' class='pt-3-half' id='rel'","html":"${relationship}"},
-    {"tag":"td contenteditable='true' class='pt-3-half' id='mobile'","html":"${mobile}"}
+            {"tag":"td contenteditable='true' class='pt-3-half' id='_id'","html":"${eid}"}, 
+            {"tag":"td contenteditable='true' class='pt-3-half' id='name'","html":"${name}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='email'","html":"${email}"},
+            {"tag":"td class='pt-3-half' id='dob' ","html":"<input type='date' id='inputdob' data-date-format='MMMM DD, YYYY' value='${dob}' data-date=''>"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='doj' ","html":"<input type='date' id='inputdoj' data-date-format='MMMM DD, YYYY' value='${doj}' data-date=''>"},
+            {"tag":"td class='pt-3-half' id='gender' ","html":"<select style='width:100%;height:100%'><option value='${gender}' disabled selected>${gender}</option><option value='male'>male</option><option value='female'>female</option></select>"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='rel'","html":"${relationship}"},
+            {"tag":"td contenteditable='true' class='pt-3-half' id='mobile'","html":"${mobile}"}
   ]};
 
   function validateEmail($email) {
@@ -354,20 +354,20 @@ script.
     var numberReg = /[2-9]{2}\d{8}/;
     return numberReg.test( $number );
   }
-
+  
   function move() {
-    var elem = document.getElementById("progressBar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
+      var elem = document.getElementById("progressBar");
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
       }
-    }
   }
   function submitForm(){
     let check=true;
@@ -384,9 +384,9 @@ script.
     console.log(boo);
     var jsonData = $('#data-table').tableToJSON({});
     for(var i=0;i<jsonData.length;++i){
-      jsonData[i].DOB=$("#data-table #dob #inputdob").eq(i).val()
-      jsonData[i].DOJ=$("#data-table #doj #inputdoj").eq(i).val()
-      jsonData[i].Gender=$('#data-table #gender').eq(i).find(":selected").text();
+     jsonData[i].DOB=$("#data-table #dob #inputdob").eq(i).val()
+     jsonData[i].DOJ=$("#data-table #doj #inputdoj").eq(i).val()
+     jsonData[i].Gender=$('#data-table #gender').eq(i).find(":selected").text();
     }
     console.log(jsonData);
     var xmlhttp = new XMLHttpRequest(); 
@@ -407,7 +407,7 @@ script.
     xmlhttp.send(JSON.stringify(jsonData))  ;
       }
 
-
+    
   }
 
   function changeDate(dateString){
@@ -422,24 +422,32 @@ script.
     }
     if(dateParts[0]<10){
       dateParts[0]=('0' + dateParts[0]).slice(-2);
-      // console.log(dateParts[2]+'-'+dateParts[1]+'-'+dateParts[0]);
+     // console.log(dateParts[2]+'-'+dateParts[1]+'-'+dateParts[0]);
     }
-// return dateArr[month+1]+' '+dateParts[0]+', '+dateParts[2];
-  console.log(dateParts[2]+'-'+dateParts[1]+'-'+dateParts[0]);
-  return dateParts[2]+'-'+dateParts[1]+'-'+dateParts[0];
+   // return dateArr[month+1]+' '+dateParts[0]+', '+dateParts[2];
+    console.log(dateParts[2]+'-'+dateParts[1]+'-'+dateParts[0]);
+    return dateParts[2]+'-'+dateParts[1]+'-'+dateParts[0];
 
   }
   function editDOB(){
     document.querySelectorAll('#data-table #dob')
     .forEach(e => e.addEventListener("click", function() {
       // Here, `this` refers to the element the event was hooked on
-
+      
       console.log($(this).context.firstChild.data);
     }));
   }
   function editContact(){
     document.querySelectorAll('#data-table #mobile')
     .forEach(e => e.addEventListener("input", function() {
+      if(!validateNumber($(this).context.firstChild.data)){
+        $(this).addClass("invalid-input");
+      } else{
+        $(this).removeClass("invalid-input");
+      }
+    }));
+    document.querySelectorAll('#data-table #mobile')
+    .forEach(e => e.addEventListener("onchange", function() {
       if(!validateNumber($(this).context.firstChild.data)){
         $(this).addClass("invalid-input");
       } else{
@@ -496,33 +504,42 @@ script.
     console.log(jsonFile);
     reader.onload = function() {
       try {
-        var lines=reader.result.split("\n");
-        var headers = lines[0].split(",");
-        for(var i=1;i<lines.length-1;i++){
-          var built_line = {};
-          var cells=lines[i].split(",");
-          for(var j=0;j<cells.length;j++){
-            if(cells[j].trim() != ''){
-              built_line[headers[j].trim()]= cells[j].trim();
-            }
-          }
-          jsonFile[i-1] = built_line;
-        }            
+          var lines=reader.result.split("\n");
+          var headers = lines[0].split(",");
+          for(var i=1;i<lines.length-1;i++){
+              var built_line = {};
+              var cells=lines[i].split(",");
+              for(var j=0;j<cells.length;j++){
+                  if(cells[j].trim() != ''){
+                      built_line[headers[j].trim()]= cells[j].trim();
+                  }
+              }
+              jsonFile[i-1] = built_line;
+          }            
       }
       catch{
-        console.log("Error");   
+          console.log("Error");   
       }
     for(let i=0;i<jsonFile.length;++i){
-      jsonFile[i].dob=changeDate(jsonFile[i].dob);
+       jsonFile[i].dob=changeDate(jsonFile[i].dob);
         jsonFile[i].doj=changeDate(jsonFile[i].doj);
-      }
-      $('#target_div').html(json2html.transform(jsonFile,transform));
-      console.log(jsonFile);
-      editDOB();
-      editEmail();
-      editContact();
-      $("[id=inputdob],[id=inputdoj]").on("change", function() {
-      this.setAttribute(
+        if(!validateNumber(jsonFile[i].mobile)){
+          alert("There are some incorrect entries in the file. Please try again after correcting them");
+          return;
+        }
+        if(!validateEmail(jsonFile[i].email)){
+          alert("There are some incorrect entries in the file. Please try again after correcting them");
+          return;
+        }
+        
+     }
+     $('#target_div').html(json2html.transform(jsonFile,transform));
+     console.log(jsonFile);
+     editDOB();
+     editEmail();
+     editContact();
+     $("[id=inputdob],[id=inputdoj]").on("change", function() {
+     this.setAttribute(
         "data-date",
         moment(this.value, "YYYY-MM-DD")
         .format( this.getAttribute("data-date-format") )
@@ -531,4 +548,5 @@ script.
     $("[id=inputdob],[id=inputdoj]").trigger("change");
     }
   }
-
+  
+  
