@@ -239,7 +239,7 @@ html
               .progress-bar.progress-bar-striped.progress-bar-animated#progressBar( role='progressbar' value='0' max='100' style="width:2%")
             form.md-form(style="margin-left:45%" id= "myform" name="myform" method="post" action="users/uploadData" enctype='multipart/form-data')
               .form-group
-                input(name='csvData', onchange="parseCSV()" id='csvData', class="custom-file-input" type='file')
+                input(name='csvData' onchange="parseCSV()" id='csvData' class="custom-file-input" type='file')
           #messageOut(style="display:none;" class="success")
             i(class="fa fa-info-circle fa-lg" aria-hidden="true" style="margin-left:50%")
             h6(id="outputHeader" style="margin-left:45%;margin-top:1px;" ) Status
@@ -297,19 +297,19 @@ html
           text-align: center;
           }
         p.css-aduqc0 © Plum Benefits Private Limited <br> <a href="/users/logout">Logout here<a>
- 
+
 // Content ends
 script.
   var transform = 
   {"tag":"tr", "children":[
-            {"tag":"td contenteditable='true' class='pt-3-half' id='_id'","html":"${eid}"},
-            {"tag":"td contenteditable='true' class='pt-3-half' id='name'","html":"${name}"},
-            {"tag":"td contenteditable='true' class='pt-3-half' id='email'","html":"${email}"},
-            {"tag":"td contenteditable='true' class='pt-3-half' id='dob' ","html":"${dob}"},
-            {"tag":"td contenteditable='true' class='pt-3-half' id='doj' ","html":"${doj}"},
-            {"tag":"td class='pt-3-half' id='gender' ","html":"<select style='width:100%;height:100%'><option value='${gender}' disabled selected>${gender}</option><option value='male'>male</option><option value='female'>female</option></select>"},
-            {"tag":"td contenteditable='true' class='pt-3-half' id='rel'","html":"${relationship}"},
-            {"tag":"td contenteditable='true' class='pt-3-half' id='mobile'","html":"${mobile}"}
+    {"tag":"td contenteditable='true' class='pt-3-half' id='_id'","html":"${eid}"},
+    {"tag":"td contenteditable='true' class='pt-3-half' id='name'","html":"${name}"},
+    {"tag":"td contenteditable='true' class='pt-3-half' id='email'","html":"${email}"},
+    {"tag":"td contenteditable='true' class='pt-3-half' id='dob' ","html":"${dob}"},
+    {"tag":"td contenteditable='true' class='pt-3-half' id='doj' ","html":"${doj}"},
+    {"tag":"td class='pt-3-half' id='gender' ","html":"<select style='width:100%;height:100%'><option value='${gender}' disabled selected>${gender}</option><option value='male'>male</option><option value='female'>female</option></select>"},
+    {"tag":"td contenteditable='true' class='pt-3-half' id='rel'","html":"${relationship}"},
+    {"tag":"td contenteditable='true' class='pt-3-half' id='mobile'","html":"${mobile}"}
   ]};
 
   function validateEmail($email) {
@@ -321,43 +321,43 @@ script.
     var numberReg = /[2-9]{2}\d{8}/;
     return numberReg.test( $number );
   }
-  
+
   function move() {
-      var elem = document.getElementById("progressBar");
-      var width = 1;
-      var id = setInterval(frame, 10);
-      function frame() {
-        if (width >= 100) {
-          clearInterval(id);
-          i = 0;
-        } else {
-          width++;
-          elem.style.width = width + "%";
-        }
+    var elem = document.getElementById("progressBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
       }
+    }
   }
   function submitForm(){
     var jsonData = $('#data-table').tableToJSON({
-   
-        //ignoreColumns: [0]
+
+      //ignoreColumns: [0]
   });
-   console.log(jsonData);
-    var xmlhttp = new XMLHttpRequest(); 
-    move();  // new HttpRequest instance
-    xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      $("#messageOut").css("display", "block");
-      let res=this.responseText;
-      console.log(typeof(res));
-      console.log(res.indexOf("*"));
-      document.getElementById("outputMessage").innerHTML = res.substring(res.indexOf("*")+1);
-      document.getElementById("outputHeader").innerHTML =
-        res.substring(0,res.indexOf("*"));
-      }
-    };
-    xmlhttp.open("POST", "http://localhost:5000/users/uploadData");
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xmlhttp.send(JSON.stringify(jsonData));
+    console.log(jsonData);
+      var xmlhttp = new XMLHttpRequest(); 
+      move();  // new HttpRequest instance
+      xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        $("#messageOut").css("display", "block");
+        let res=this.responseText;
+        console.log(typeof(res));
+        console.log(res.indexOf("*"));
+        document.getElementById("outputMessage").innerHTML = res.substring(res.indexOf("*")+1);
+        document.getElementById("outputHeader").innerHTML =
+          res.substring(0,res.indexOf("*"));
+        }
+      };
+      xmlhttp.open("POST", "http://localhost:5000/users/uploadData");
+      xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xmlhttp.send(JSON.stringify(jsonData));
   }
 
   function changeDate(dateString){
@@ -420,31 +420,30 @@ script.
     console.log(jsonFile);
     reader.onload = function() {
       try {
-          var lines=reader.result.split("\n");
-          var headers = lines[0].split(",");
-          for(var i=1;i<lines.length-1;i++){
-              var built_line = {};
-              var cells=lines[i].split(",");
-              for(var j=0;j<cells.length;j++){
-                  if(cells[j].trim() != ''){
-                      built_line[headers[j].trim()]= cells[j].trim();
-                  }
-              }
-              jsonFile[i-1] = built_line;
-          }            
+        var lines=reader.result.split("\n");
+        var headers = lines[0].split(",");
+        for(var i=1;i<lines.length-1;i++){
+          var built_line = {};
+          var cells=lines[i].split(",");
+          for(var j=0;j<cells.length;j++){
+            if(cells[j].trim() != ''){
+              built_line[headers[j].trim()]= cells[j].trim();
+            }
+          }
+          jsonFile[i-1] = built_line;
+        }            
       }
       catch{
-          console.log("Error");   
+        console.log("Error");   
       }
     for(let i=0;i<jsonFile.length;++i){
-       jsonFile[i].dob=changeDate(jsonFile[i].dob);
+      jsonFile[i].dob=changeDate(jsonFile[i].dob);
         jsonFile[i].doj=changeDate(jsonFile[i].doj);
-     }
-     $('#target_div').html(json2html.transform(jsonFile,transform));
-     console.log(jsonFile);
-     editDOB();
-     editEmail();
-     editContact()
+}
+$('#target_div').html(json2html.transform(jsonFile,transform));
+console.log(jsonFile);
+editDOB();
+editEmail();
+editContact()
     }
   }
-  
