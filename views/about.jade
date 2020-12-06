@@ -1,0 +1,225 @@
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+style.
+  body {
+  margin:0;
+  }
+  h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+  }
+  p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+  }
+  .header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+  }
+  .logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+  }
+  .inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  }
+  .flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  }
+  .waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+  }
+  .content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+  }
+  /* Animation */
+  .parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+  }
+  .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  }
+  .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  }
+  .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  }
+  .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  }
+  @keyframes move-forever {
+  0% {
+  transform: translate3d(-90px,0,0);
+  }
+  100% {
+  transform: translate3d(85px,0,0);
+  }
+  }
+  .progress{
+    margin-left:20%;
+    margin-right:20%;
+    margin-top:2%;
+  }
+  .file-field.medium .file-path-wrapper {
+    height: 3rem; }
+  .file-field.medium .file-path-wrapper .file-path {
+    height: 2.8rem; }
+
+  .file-field.big-2 .file-path-wrapper {
+    height: 3.7rem; }
+  .file-field.big-2 .file-path-wrapper .file-path {
+    height: 3.5rem; }
+  /*Shrinking for mobile*/
+  @media (max-width: 768px) {
+  .waves {
+  height:40px;
+  min-height:40px;
+  }
+  .content {
+  height:30vh;
+  }
+  h1 {
+  font-size:24px;
+  }
+  }
+.header
+  <br><br><br>
+  //progress( style='width:300px;')
+  //button( class="btn btn-danger" type='submit' name='submit' value='Register') Cancel
+  p 
+  |  Tech/Tools/Packages Invoved - JADE,CSS,Node.js, Multer, MongoDB, Mongoose, Express,passport, Bcrupt, Flash <br><br>
+  |  Flow of Application - User Registration -> Authentication ->Upload File->Validate CSV ->Upload CSV -> File Operations (Pause,Terminate)  <br><br>
+  |  Business Logic : Upon successful authentication the user is enabled file upload. Each row in the csv is individually uploaded to MongoDB (Design Choice, to mock large data).
+  div
+    button(style="margin:10px" type='submit'  class="btn btn-info" onclick ="window.location='/'" id='logout' value='Register') Home <br>
+    button(style="margin:10px" type='submit' class="btn btn-info" onclick ="window.location='/users/logout'" id='logout' value='Register') Logout <br>
+  // Content before waves
+  //h1 Simple CSS Waves
+  // Waves Container
+  div
+    svg.waves(xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 24 150 28' preserveAspectRatio='none' shape-rendering='auto')
+      defs
+        path#gentle-wave(d='M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z')
+      g.parallax
+        use(xlink:href='#gentle-wave' x='48' y='0' fill='rgba(255,255,255,0.7')
+        use(xlink:href='#gentle-wave' x='48' y='3' fill='rgba(255,255,255,0.5)')
+        use(xlink:href='#gentle-wave' x='48' y='5' fill='rgba(255,255,255,0.3)')
+        use(xlink:href='#gentle-wave' x='48' y='7' fill='#fff')
+  // Waves end
+// Header ends
+// Content starts
+.content.flex
+  p By Harsh Joshi <br><br><br><br>
+ 
+// Content ends
+script.
+  function move() {
+      var elem = document.getElementById("progressBar");
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
+    }
+  
+  function pauseUpload(){
+    var isPause= $('#pause').text();
+    console.log(isPause);
+    if(isPause.localeCompare("Pause")){
+       $('#pause').text("Resume");
+    }
+    else{checkResume();}
+            
+  }
+  function checkResume(){
+    var isPause= $('#pause').text();
+    console.log(isPause);
+    if(isPause.localeCompare("Resume")){
+       $('#pause').text("Pause");
+    }
+            
+  }
+  function parseCSV(){
+    var csvFile = $('#csvData').prop('files')[0];  
+    let reader = new FileReader();
+    reader.readAsText(csvFile);
+    jsonFile = [];
+    console.log(jsonFile);
+    reader.onload = function() {
+      try {
+          var lines=reader.result.split("\n");
+          var headers = lines[0].split(",");
+          for(var i=1;i<lines.length;i++){
+              var built_line = {};
+              var cells=lines[i].split(",");
+              for(var j=0;j<cells.length;j++){
+                  if(cells[j].trim() != ''){
+                      built_line[headers[j].trim()]= cells[j].trim();
+                  }
+              }
+              jsonFile[i-1] = built_line;
+          }            
+      }
+      catch{
+          console.log("Error");   
+      }
+      console.log(jsonFile);
+    }
+  }
+  $(document).ready(function () { 
+    var output =0;
+    console.log("Called");
+    $('#terminate').click(function(e){
+      window.stop();
+      e.preventDefault();
+      console.log("Called Inside");
+      e.stopPropagation();
+      $.ajax({
+        url: "users/getCount",
+        type: 'GET',
+        success: function(res) {
+            var n = res.search("countDiv");
+            var match=res.substring(n+10,n+11);
+            console.log(match);
+            output= match;
+            //alert(res);
+        }
+    });
+    alert(output+" Records were rolled back");
+    });
+    
+  });
